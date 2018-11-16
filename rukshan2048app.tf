@@ -1,22 +1,22 @@
-resource "aws_instance" "rukshan2048" {
+resource "aws_instance" "padma2048" {
   ami = "ami-cb076fb4"
   instance_type = "t2.micro"
-  key_name = "RukshanPCS"
-  subnet_id = "${aws_subnet.rukshanvpc-private-subnet.id}"
-  vpc_security_group_ids = ["${aws_security_group.rukshan-sg.id}"]
+  key_name = "My_new_private_pearson_usest1"
+  subnet_id = "${aws_subnet.padma_vpc-private-subnet.id}"
+  vpc_security_group_ids = ["${aws_security_group.padma-sg.id}"]
   user_data = "${file("install.sh")}" 
 
   tags {
-    Name = "rukshan2048"
+    Name = "padma2048"
     t_AppID = "Cloud Governance"
     t_awscon = "Pilot"
     t_cmdb = "No"
     t_cost_centre = "PCS"
     t_dcl = "2"
     t_environment = "Test"
-    t_name = "Rukshan2048"
-    t_owner_individual = "rukshan.kothwala@pearson.com"
-    t_responsible_individuals = "rukshan.kothwala@pearson.com"
+    t_name = "padma2048"
+    t_owner_individual = "padma.priyanjith@pearson.com"
+    t_responsible_individuals = "padma.priyanjith@pearson.com"
     t_pillar = "Foundation"
     t_role = "App"
     t_shut = "No"
@@ -24,12 +24,12 @@ resource "aws_instance" "rukshan2048" {
 
 }
 
-resource "aws_elb" "rukshan2048ELB" {
-  name = "rukshan2048ELB"
+resource "aws_elb" "padma2048ELB" {
+  name = "padma2048ELB"
 
-  subnets         = ["${aws_subnet.rukshanvpc-private-subnet.id}", "${aws_subnet.rukshanvpc-public-subnet.id}"]
-  security_groups = ["${aws_security_group.rukshan-sg.id}"]
-  instances       = ["${aws_instance.rukshan2048.id}"]
+  subnets         = ["${aws_subnet.padma_vpc-private-subnet.id}", "${aws_subnet.padma_vpc-public-subnet.id}"]
+  security_groups = ["${aws_security_group.padma-sg.id}"]
+  instances       = ["${aws_instance.padma2048.id}"]
 
   listener {
     instance_port     = 8080
@@ -47,16 +47,16 @@ resource "aws_elb" "rukshan2048ELB" {
   }
   
   tags {
-    Name = "rukshan2048ELB"
+    Name = "padma2048ELB"
     t_AppID = "Cloud Governance"
     t_awscon = "Pilot"
     t_cmdb = "No"
     t_cost_centre = "PCS"
     t_dcl = "2"
     t_environment = "Test"
-    t_name = "Rukshan2048ELB"
-    t_owner_individual = "rukshan.kothwala@pearson.com"
-    t_responsible_individuals = "rukshan.kothwala@pearson.com"
+    t_name = "padma2048ELB"
+    t_owner_individual = "padma.priyanjith@pearson.com"
+    t_responsible_individuals = "padma.priyanjith@pearson.com"
     t_pillar = "Foundation"
     t_role = "App"
     t_shut = "No"
