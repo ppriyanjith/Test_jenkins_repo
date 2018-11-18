@@ -38,6 +38,7 @@ resource "aws_subnet" "padma_vpc-public-subnet" {
   vpc_id = "${aws_vpc.padma_vpc.id}"
   cidr_block = "10.23.1.0/24"
   availability_zone = "us-east-1a"
+  map_public_ip_on_launch = true
 
  tags = "${merge(
     local.common_tags,

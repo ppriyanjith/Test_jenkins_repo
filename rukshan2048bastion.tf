@@ -1,5 +1,5 @@
 resource "aws_instance" "padmaBastion" {
-  ami = "ami-cb076fb4"
+  ami = "ami-0ac019f4fcb7cb7e6"
   instance_type = "t2.micro"
   key_name = "My_new_private_pearson_usest1"
   subnet_id = "${aws_subnet.padma_vpc-public-subnet.id}"
