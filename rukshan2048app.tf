@@ -2,8 +2,9 @@ resource "aws_instance" "padma2048" {
   ami = "ami-0ac019f4fcb7cb7e6"
   instance_type = "t2.micro"
   key_name = "My_new_private_pearson_usest1"
-  subnet_id = "${aws_subnet.padma_vpc-private-subnet.id}"
+  subnet_id = "${aws_subnet.padma_vpc-public-subnet.id}"
   vpc_security_group_ids = ["${aws_security_group.padma-sg.id}"]
+  associate_public_ip_address = true
   user_data = "${file("install.sh")}" 
 
   tags {
